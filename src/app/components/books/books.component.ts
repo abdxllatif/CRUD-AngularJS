@@ -22,4 +22,11 @@ export class BooksComponent implements OnInit {
         .subscribe(books => this.books = books)
   }
 
+  deleteBook(id){
+    this.bookService.delete(id)
+        .subscribe(() => {
+          this.books = this.books.filter(book => book.id != id)
+        })
+  }
+
 }

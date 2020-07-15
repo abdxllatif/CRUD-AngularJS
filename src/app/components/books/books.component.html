@@ -29,6 +29,9 @@
     <div class="col-md-6 mx-auto">
         <ul class="list-group">
             <li *ngFor="let book of books" class="list-group-item d-flex justify-content-between align-items-center">
+                <button class="btn btn-warning btn-sm">
+                    <i class="fa fa-pencil"></i>
+                </button>
                 {{ book.label }}
                 <span [ngClass]="{
                     'badge-info': book.completed,
@@ -39,6 +42,9 @@
                         'fa-thumbs-down': !book.completed
                     }"></i>
                 </span>
+                <button (click)="deleteBook(book.id)" class="btn btn-dark btn-sm">
+                    <i class="fa fa-trash "></i>
+                </button>
             </li>
         </ul>
     </div>
