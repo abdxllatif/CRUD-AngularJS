@@ -9,6 +9,11 @@ import { Book } from 'src/app/models/book';
 })
 export class BooksComponent implements OnInit {
 
+  myBook : Book = {
+    label : '',
+    completed : false
+  }
+
   books : Book[] = [];
 
   constructor(private bookService : BookService) { }
@@ -28,5 +33,18 @@ export class BooksComponent implements OnInit {
           this.books = this.books.filter(book => book.id != id)
         })
   }
+  persistBook(){
+    this.bookService.persist(this.myBook)
+        .subscribe((book) => {
+          this.books =[book, ...this.books];
+          this.resetBook();
+        })
+  }
 
+  resetBook(){
+    this.myBook = {
+      label: '',
+      completed: false
+    }
+  }
 }

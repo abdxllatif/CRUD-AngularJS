@@ -12,15 +12,15 @@
     <div class="col-md-6 mx-auto">
         <div class="form-group">
             <label for="Label">Label</label>
-            <input id="Label" type="text" class="form-control">
+            <input [(ngModel)]="myBook.label" id="Label" type="text" class="form-control">
         </div>
         <div class="form-check my-2">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
+            <input [(ngModel)]="myBook.completed" type="checkbox" class="form-check-input">
             Completed
           </label>
         </div>
-        <button class="btn btn-success btn-block">
+        <button (click)="persistBook()" class="btn btn-success btn-block">
             <i class="fa fa-send"></i> New Book
         </button>
     </div>

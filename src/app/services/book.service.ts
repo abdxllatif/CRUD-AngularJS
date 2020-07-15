@@ -17,5 +17,7 @@ export class BookService {
   delete(id){
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-  
+  persist(book){
+    return this.http.post<Book>(this.apiUrl, book);
+  }
 }
