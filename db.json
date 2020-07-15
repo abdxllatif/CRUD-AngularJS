@@ -1,0 +1,14 @@
+{
+    "Books" : [
+        {
+            "id" : 1,
+            "label" : "Math 3AS book",
+            "completed" : false
+        },
+        {
+            "id" : 2,
+            "label" : "Sciences 2AS book",
+            "completed" : true
+        }
+    ]
+}
