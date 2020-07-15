@@ -27,6 +27,19 @@
 </div>
 <div class="row">
     <div class="col-md-6 mx-auto">
-        List of books
+        <ul class="list-group">
+            <li *ngFor="let book of books" class="list-group-item d-flex justify-content-between align-items-center">
+                {{ book.label }}
+                <span [ngClass]="{
+                    'badge-info': book.completed,
+                    'badge-danger': !book.completed
+                }" class="badge badge-pill">
+                    <i class="fa" [ngClass]="{
+                        'fa-thumbs-up': book.completed,
+                        'fa-thumbs-down': !book.completed
+                    }"></i>
+                </span>
+            </li>
+        </ul>
     </div>
 </div>
