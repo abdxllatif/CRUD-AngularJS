@@ -9,8 +9,8 @@ import { Book } from 'src/app/models/book';
 })
 export class BooksComponent implements OnInit {
 
+  search ='';
   showForm = false;
-
   editForm = false;
 
   myBook : Book = {
@@ -19,6 +19,7 @@ export class BooksComponent implements OnInit {
   }
 
   books : Book[] = [];
+  resBooks : Book[] = [];
 
   constructor(private bookService : BookService) { }
 
@@ -28,7 +29,9 @@ export class BooksComponent implements OnInit {
 
   getBooks(){
     this.bookService.findAll()
-        .subscribe(books => this.books = books)
+        .subscribe(books => {
+          this.resBooks = this.books = books
+        })
   }
 
   deleteBook(id){
@@ -73,4 +76,7 @@ export class BooksComponent implements OnInit {
         })
   }
 
+  searchBooks(){
+    this.resBooks = this.books.filter((book) => book.label.toLowerCase().includes(this.search.toLowerCase()))
+  }
 }

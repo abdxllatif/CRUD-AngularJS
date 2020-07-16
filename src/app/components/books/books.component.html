@@ -30,8 +30,10 @@
 </div>
 <div class="row">
     <div class="col-md-6 mx-auto">
+
+        <input (keyup)="searchBooks()" [(ngModel)]="search" placeholder="Search" type="text" class="form-control">
         <ul class="list-group">
-            <li *ngFor="let book of books" class="list-group-item d-flex justify-content-between align-items-center">
+            <li *ngFor="let book of resBooks" class="list-group-item d-flex justify-content-between align-items-center">
                 <button (click)="edit(book)" class="btn btn-warning btn-sm">
                     <i class="fa fa-pencil"></i>
                 </button>
