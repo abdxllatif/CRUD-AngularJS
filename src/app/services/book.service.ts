@@ -20,4 +20,10 @@ export class BookService {
   persist(book){
     return this.http.post<Book>(this.apiUrl, book);
   }
+  completed(id, completed){
+    return this.http.patch(`${this.apiUrl}/${id}`, {completed: !completed});
+  }
+  update(book){
+    return this.http.put(`${this.apiUrl}/${book.id}`,book)
+  }
 }

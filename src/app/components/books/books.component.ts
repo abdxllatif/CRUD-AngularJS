@@ -9,6 +9,8 @@ import { Book } from 'src/app/models/book';
 })
 export class BooksComponent implements OnInit {
 
+  editForm = false;
+
   myBook : Book = {
     label : '',
     completed : false
@@ -47,4 +49,25 @@ export class BooksComponent implements OnInit {
       completed: false
     }
   }
+
+  toggleCompleted(book){
+    this.bookService.completed(book.id,book.completed)
+        .subscribe(() => {
+          book.completed = !book.completed
+        })
+  }
+
+  edit(book){
+    this.myBook = book
+    this.editForm = true
+  }
+
+  updateBook(){
+    this.bookService.update(this.myBook)
+        .subscribe(book => {
+          this.resetBook()
+          this.editForm = false
+        })
+  }
+
 }
