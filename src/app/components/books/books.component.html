@@ -3,12 +3,12 @@
         <h3>List of Books</h3>
     </div>
     <div class="col-md-6 text-right">
-        <button class="btn btn-dark btn-sm">
+        <button (click)="showForm = !showForm" class="btn btn-dark btn-sm">
             <i class="fa fa-plus"></i> New book
         </button>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="showForm">
     <div class="col-md-6 mx-auto">
         <div class="form-group">
             <label for="Label">Label</label>

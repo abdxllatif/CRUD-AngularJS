@@ -9,6 +9,8 @@ import { Book } from 'src/app/models/book';
 })
 export class BooksComponent implements OnInit {
 
+  showForm = false;
+
   editForm = false;
 
   myBook : Book = {
@@ -40,6 +42,7 @@ export class BooksComponent implements OnInit {
         .subscribe((book) => {
           this.books =[book, ...this.books];
           this.resetBook();
+          this.showForm = false;
         })
   }
 
